@@ -7,7 +7,6 @@ class Database
 	private $dsn	 	= 'mysql:host=localhost;dbname=gaming-site;charset=utf8';
 	private $password 	= '';
 	private $user	 	= 'root';
-	
 
 	public function __construct()
 	{
