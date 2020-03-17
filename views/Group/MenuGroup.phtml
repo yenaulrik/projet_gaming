@@ -10,9 +10,9 @@
     <div class="grp-menu">
         <nav>
             <ul>
-                <?if($session->sessionExists()):?>
+                <?php if($session->sessionExists()): ?>
                 <li><a href="?page=Articles/Add&group_id=<?= $group['group_id']?>" title="Créer un Article">Créer Article</a></li>
-                <?endif;?>
+                <?php endif;?>
                 <li><a href="?page=New_group" title="Membres">Membres</a></li>
                 <li><a href="?page=Group&group_id=<?= $group['group_id']?>" title="Rejoindre le groupe">Rejoindre le groupe!</a></li>
             </ul>
