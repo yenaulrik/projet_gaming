@@ -1,0 +1,536 @@
+html{
+    font-size : 62.5%;
+}
+body{
+    font-size: 1.8rem;
+    margin : 0 auto;
+    background-color: #d4d4d4;
+}
+
+h1{
+    font-family: 'Sawarabi Mincho', sans-serif;
+    font-size: 3rem;
+}
+h2{
+    font-family: 'Sawarabi Mincho', sans-serif;
+    font-size: 2.5rem;
+}
+h3{
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+}
+
+/************************************************************/
+/*                    CLASSICS                              */
+/************************************************************/
+/*
+couleurs : 
+#0A1128 noir
+#001F54 bleu sombre
+#004365 bleu foncé
+#1282A2 bleu
+
+*/
+.center{
+    text-align: center;
+}
+.full-width img{
+    width: 100%;
+}
+.caption{
+    display: inline-block;
+    font-size: 1.4rem;
+    font-style: italic;
+    margin: 0;
+}
+.container{
+    width : 80%;
+    margin : 0 auto;
+}
+.box{
+    margin: 0;
+    padding: 10px;
+}
+.content-40{
+    width: 30%;
+}
+.content-60{
+    width: 70%;
+}
+main{
+    margin-bottom: 45px !important;
+}
+.col{
+    display: flex;
+    flex-direction: column;
+}
+.row{
+    display: flex;
+    flex-direction: row;
+}
+.btw{
+    justify-content: space-between;
+}
+.ard{
+    justify-content: space-around;
+}
+.box-shd{
+    box-shadow: 0px 25px 25px #333,
+                0px 25px 25px #666; 
+}
+.modal{
+    z-index:4;
+    display:none;
+    padding-top:100px;
+    position:fixed;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    overflow:auto;
+    background-color:rgb(0,0,0);
+    background-color:rgba(0,0,0,0.4)
+}
+
+.modal-content{
+    margin:auto;
+    background-color:#fff;
+    position:relative;
+    padding:0 0 20px;
+    outline:0;
+    width:600px;
+    z-index:5;
+    text-align: center;
+}
+.modal-content h2{
+    text-align: center;
+    color : white;
+    text-transform: uppercase;
+    margin: 0;
+    padding : 15px 0 15px;
+    background-color: #004365;
+}
+.modal-content form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.modal input{
+    margin : 5px;
+    border-radius: 5px;
+}
+.modal input[type*="submit"]{
+    background-color: #004365;
+    color: white;
+}
+.animate-top{
+    position:relative;
+    animation:animatetop 0.4s}@keyframes animatetop{
+        from{top:-300px;opacity:0} to{top:0;opacity:1}
+    }
+    .display-none{
+        display: none;
+    }
+/*  TAGS  */
+
+/************************************************************/
+/*                    HEADER                                */
+/************************************************************/
+/*      Box Header        */
+header, footer, .grp-menu{
+    margin : 0 auto;
+    background-color: #004365;
+}
+header .container, footer .container{
+    
+    box-sizing: border-box;
+    display : flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+.grp-menu  nav ul{
+    padding : 0;
+    display : flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin : 0 auto 0 ;
+    height : auto;
+}
+/*      MENU        */
+header nav{
+    width: 45%;
+    display : flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    height : auto;
+}
+footer nav{
+    width : 75%;
+}
+header nav ul, footer nav ul{
+    padding : 0;
+    display : flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin : 0 auto 0 ;
+    height : auto;
+    /*test*/
+}
+    header nav ul li, footer nav ul li, .grp-menu nav ul li{
+        display : flex;
+        flex-direction: column;
+        list-style-type: none;
+        
+        text-align: center;
+        height : 75px;
+        justify-content: center;
+        transition: all 300ms ease-in-out;
+    }
+    header nav ul li:hover, footer nav ul li:hover, .grp-menu nav ul li:hover{
+        background-color: #ffffff21;
+        cursor: pointer;
+    }
+    header nav ul li a, footer nav ul li a, .grp-menu nav ul li a{
+        display : inline-block;
+        text-decoration: none;
+        font-size: 2rem;
+        
+        text-align : center ;
+        padding: 20px 20px 20px;
+        color:#eee;
+        
+    }
+
+/*      BANNIERE        */
+
+header .logo-site, footer .logo-site{
+    text-align: left;
+    padding-left : 10px;
+    width : 25%;
+}
+    header .logo-site a, footer .logo-site a{
+        text-decoration: none;
+        color : #eee;
+    }
+
+header .btn-user, footer .btn-user{
+    padding-right : 10px;
+    display : flex;
+    flex-direction: row;
+    justify-content: right;
+    text-align: center;
+    width : 30%;
+}
+header .btn-user > div, footer .btn-user > div{
+    width: 30%;
+}
+header .btn-user .fas,header .btn-user a,
+footer .btn-user .fas,footer .btn-user a{
+    padding: 20px 20px 20px;
+    font-size: 3rem;
+    text-decoration : none;
+    color :#eee;
+}
+/*  MENU USER */
+.menu-user{
+    position: relative;
+    cursor: pointer;
+}
+
+.menu-user div{
+    
+    z-index: 5;
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+}
+.menu-user div ul{
+    padding: 0;
+    margin: 0;
+}
+.menu-user div li a{
+    font-size: 2rem;
+    padding: 8px;
+    text-transform: none;
+    color: black;
+}
+.menu-user div li{
+    list-style-type: none;
+    background-color: white;
+    border-radius: 5px;
+}
+/************************************************************/
+/*                    FOOTER                                */
+/************************************************************/
+/* margin & backgroundColor defini avec le header */
+
+/************************************************************/
+/*                    Caroussel                              */
+/************************************************************/
+
+/* essaie du carousel -> main balise ->  
+    Section class="carousel"
+        h2
+        div
+            article
+                h3
+                p
+*/
+main > section:nth-child(even){
+    background-color: #f2f2f2;
+    
+}
+main > section:nth-child(odd){
+    background-color: #e6e6e6;
+    
+}
+.carousel{
+    display : flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    position: relative;
+}
+.carousel .slide-left, .carousel .slide-right{
+    display : flex;
+    flex-direction: column;
+    justify-content: center;
+    position : absolute;
+    top: 0;
+    width : 2em;
+    height: 100%;
+    background-color: #ffffffa1;
+    z-index: 3;
+    text-align: center;
+}
+.carousel .slide-left:hover, .carousel .slide-right:hover{
+    cursor : pointer;
+}
+.carousel .slide-left:active, .carousel .slide-right:active {
+    background-color: #dddddda1;
+}
+    .slide-left > .fas, .slide-right > .fas{
+        color: #e3e3e3;
+        padding-bottom : 20px;
+        font-size: 5rem;
+    }
+    .slide-left:active > .fas, .slide-right:active > .fas{
+        color: white;
+    }
+        .carousel .slide-left{
+            left : 0px;
+        }
+        .carousel .slide-right{
+            right : 0px;
+        }
+        .slide-left > .fas{
+            transform: rotate(90deg);
+        }
+        .slide-right > .fas{
+            transform: rotate(-90deg);
+        }
+
+    section> h2{
+        text-align: center;
+        text-transform: uppercase;
+        color : white;
+        background-color: #002f46;
+        margin : 0;
+        padding : 1em;
+        position: relative;
+        z-index: 3;
+
+    }
+    .carousel > div {
+        display : flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        position: relative;
+        z-index: 2;
+    }
+        .carousel > div > article{
+            display : flex ;
+            width : 25%;
+            height : 250px;
+            box-sizing : border-box;
+            display : flex;
+            flex-direction: column;
+            /*test*/
+            cursor: pointer;
+            position : relative;
+            padding-top : 1em ;
+        }
+            .carousel > div > article > h3{
+                text-align: center;
+                text-transform: uppercase;
+                color : #ff4000;
+                display : inline-block;
+                box-sizing: border-box;
+                margin : 0;
+            }
+            .carousel > div > article img{
+                
+                height: 100%;
+                width: 100%;
+            }
+            .carousel > div > article a{
+                height: 100%;
+                width: 100%;
+            }
+                .grp{
+                    display : inline-block;
+                    position : absolute;
+                    padding: 3px 12px 3px;
+                    border-radius: 5px;
+                    background-color: #ffffffa1;
+                    bottom : 1em;
+                    right : 20px;
+                    color: #002f46;
+                    font-size: 2.5rem;
+                }
+    .carousel th{
+        width : 20%;
+    }
+    .carousel td{
+        text-align: center;
+    }
+    .carousel td > table{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+        text-align: center;
+        
+    }
+        .carousel td > p{
+            margin: 5px 0 5px;
+        }
+    .carousel tr:nth-child(even){
+        background-color: #f2f2f2;
+    }
+    .carousel tr:nth-child(odd){
+        background-color: #e6e6e6;
+    }
+    .carousel .title h2{
+        background-color: #002f46;
+        color: white;
+        margin: 0;
+        padding: 15px 0 15px;
+        text-transform: uppercase;
+    }
+/************************************************************/
+/*                    Formulaire                            */
+/************************************************************/
+
+.page_jeux form{
+    display: flex;
+    flex-direction: row;
+    min-height : 100px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+#form{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 60%;
+    text-align: center;
+    box-sizing: border-box;
+}
+#form > label{
+    height : 65px;
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    background-color: #004365;
+    border-radius : 5px 5px 4px 4px;
+    font-size: 2rem;
+    color : white;
+}
+#form > label > input{
+    border : none;
+    box-sizing: border-box;
+    border-radius : 2px 2px 4px 4px;
+    box-shadow: inset -2px -2px 0px  grey;
+    padding : 5px;
+    height : 2em;
+    width: 100%;
+}
+#form > label > input::placeholder{
+    color : grey;
+}
+.show-tags{
+    display: none;
+}
+.list-tag{
+    display: flex;
+    flex-direction: row;
+}
+.tag-choice{
+    margin-right: 5px;
+}
+.tags{
+    width : 40%;    
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    box-sizing: border-box;
+    text-align: center;
+}
+.tags > h3{
+    margin: 0;
+}
+.tags span{
+    font-size: 1.6rem;
+    display : inline-block;
+    border-radius: 5px;
+    padding: 0 5px 0;
+    background-color: ivory;
+}
+.tags span i{
+    font-size : 1rem;
+    margin-left : 3px;
+}
+.tags span:hover{
+    cursor: pointer;
+}
+/*   CREATE GROUP   */
+.create_group{
+    padding-bottom: 20px;
+}
+#create_form form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#create_form .jeuList{
+    width: 60%;
+    display: flex;
+
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+#create_form .jeuList div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 5px;
+    padding: 0 10px 0;
+    background-color: ivory;
+    margin-bottom: 5px;
+}
+#create_form .jeuList div label{
+    padding-left: 5px;
+}
+#create_form input{
+    border-radius : 5px;
+    box-shadow: inset -2px -2px 0px  grey;
+    padding : 5px;
+    height : 2em;
+}

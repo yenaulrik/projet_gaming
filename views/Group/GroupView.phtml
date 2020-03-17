@@ -1,0 +1,30 @@
+<main class="container box-shd">
+    <?php include'views/Group/MenuGroup.phtml' ;?>
+    <section>
+        <h2>Derniers articles</h2>
+        <article class="row box">
+            <div class="full-width box content-40">
+                <img src="images/games/borderlands.jpg" alt="">
+            </div>
+            <div class="col box content-60">
+                <h3>titre article</h3>
+                <div class="caption"> écrit par : X le 12/2/2011</div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium nulla repudiandae incidunt ipsam vel, eveniet, repellat reiciendis minus numquam officia reprehenderit nostrum odit rerum explicabo unde quae corporis tempore dignissimos.</p>
+            </div>
+        </article>
+
+
+        <?php foreach($articles as $article):?>
+            <article class="row box">
+                <div class="full-width box content-40">
+                    <img src="images/games/<?= $article['article_img']?>" alt="">
+                </div>
+                <div class="col box content-60">
+                    <h3><?= $article['article_title']?></h3>
+                    <div class="caption"> écrit par : <?= $article['user_pseudo']?> le <?= $article['article_creation_date']?></div>
+                    <p><?= $article['article_content']?></p>
+                </div>
+            </article>
+        <?php endforeach;?>
+    </section>
+</main>

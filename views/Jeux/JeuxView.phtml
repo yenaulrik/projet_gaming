@@ -1,0 +1,51 @@
+<main class="container box-shd">
+    <section class="page_jeux">
+        <h2>cherchez un jeu !</h2>
+        <form action="" method="post">
+            <div id="form">
+                <label for="game_name">Sur quel jeu recherchez vous ?<input type="text"
+                name="" placeholder="Nom du Jeu" name="game_name" id="game_name"/></label>
+                <label id="game_tag">Rechercher par tags</label>
+            </div>
+            <div class="tags">
+                
+                    <h3>Tag sélèctionné : </h3>
+                    <p id="picked-tags">
+                        
+                    </p>
+            </div>
+        </form>
+    </section>
+    <section class="show-tags">
+        <article class="list-tag">
+            <?php foreach($tagsType as $type):?>
+                <div class="tags">
+                    <h3><?= $type ?></h3>
+                    <p id="<?php echo preg_replace('/\s+/', '_', $type) ?>">
+                        <?php foreach($tagsList as $tag):?>
+                            <?php if($tag['type'] == $type):?>
+                                <span class="tag-choice" data-parent="<?php echo preg_replace('/\s+/', '_', $type) ?>" data-tagId="<?=$tag['tag_id']?>"><?=$tag['name']?></span>
+                            <?php endif;?>
+                        <?php endforeach;?>
+                    </p>
+                </div>
+            <?php endforeach;?>
+        </article>
+        
+    </section>
+    <section class="carousel dynamic-list">
+    <h2>Trouvez votre groupe !</h2>
+            <div>
+                <?php foreach($list as $key=>$game): ?>
+                    <?php if($key <= 15): ?>
+                        <article class="game-article" data-game="<?=$game['jeu_id']?>">
+                            <h3><?= $game['jeu_title']?></h3>
+                            <img src="<?=IMG_PATH?>\games\<?= $game['jeu_img']?>" alt="">
+                            <div class="grp"><strong>55</strong> <i class="fas fa-users"></i></div>
+                        </article>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+                
+            </div>
+    </section>
+</main>

@@ -1,0 +1,44 @@
+<!-- 
+    vous devez etre connecter pour creer un groupe
+
+
+-->
+<main class="container box-shd">
+    <section class="create_group">
+        <h2>Créez votre groupe dés maintenant !</h2>
+        <div class="container">
+
+            <p class="center">Partez à l'aventure en créant votre propre groupe de jeu! Réunissez vos amis,
+                choisissez les jeux auquels vous jouez et partagez vos expériences 
+                avec les autres joueurs !</p>
+            </div>
+        <hr>
+            <div id="create_form">
+                <form action="">
+                    
+                    <label for="group_title"><h2>Nom du Groupe</h2></label>
+                    <input type="text" id="group_title" name="group_title">
+                    
+                    <label for="group_description"><h2>Décrivez votre groupe !</h2></label>
+                    <textarea name="group_description" id="group_description" rows="5" cols="60"></textarea>
+                    
+                    
+                    <label for="group_img"><h2>Téléchargez votre bannière !</h2></label>
+                    <input type="file" accept=".jpg, .jpeg, .png" name="group_img" id="group_img">
+                    <h2>Inscrivez des jeux à votre groupe !</h2>
+                    <div class="jeuList">
+                        <?php foreach($list as $game):?>
+                            <div>
+                                <input type="checkbox" id="<?= $game['jeu_title']?><?= $game['jeu_id']?>" name="games_id[]" value="<?= $game['jeu_id']?>">
+                                <label for="<?= $game['jeu_title']?><?= $game['jeu_id']?>"><?= $game['jeu_title']?></label>
+                            </div>
+                        <?php endforeach;?>
+                    </div>
+                            
+                    <input type="submit" value="Créer le Groupe !">
+                    
+                    
+                </form>
+            </div>
+    </section>
+</main>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Accueil</title>
+    <!-- Fonts familly de Google font & fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Sawarabi+Mincho&display=swap" rel="stylesheet">  
+    <!-- fichier normalize afin de rendre homogène le style CSS sur la plupart des navigateurs -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="program/utilities.js"></script>
+    <script src="program/tagsClass.js"></script>
+    <script src="program/findClass.js"></script>
+    <script src="program/main.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <section class="logo-site">
+                <h1><a href="?page=Home" title="Lien vers l'accueil"><i class="fas fa-headset"></i>syde.com</a></h1>
+            </section>
+            <nav>
+                <ul>
+                    <li><a href="?page=Home" title="Lien vers l'accueil">Home</a></li>
+                    <li><a href="?page=Jeux" title="Liste des jeux Enregistré">Jeux</a></li>
+                    <li><a href="?page=New_group" title="Créez votre Groupe !">Former un Groupe</a></li>
+                    <li><a href="" title="Comment utiliser le site">Infos</a></li>
+                    <li><a href="" title="Nous contacter & lien externe">Contact</a></li>
+                </ul>
+            </nav>
+            <section class="btn-user">
+                <div><a href="" title="Fonction de recherche"><i class="fas fa-search"></i></a></div>
+                
+                <?php if($session->sessionExists() ): ?>
+                    <div class="menu-user">
+                        <i class="fas fa-user"></i>
+                        <div id="menu-user" class="display-none">
+                            <ul>
+                                <li><a href="?page=User/Logout">Déconnection</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                <?php else: ?>
+                    <div><a href="" title="Login / Inscription" id="log"><i class="fas fa-user"></i></a></div>
+                <?php endif; ?>
+            </section>
+        </div>
+        <?php if(isset($_GET['error']) ): ?>
+            <div class="center"><h3>Mot de passe ou Email incorrect</h3></div>
+        <?php endif; ?>
+
+        <div id="modal" class="modal">
+            <div class="modal-content animate-top box-shd">
+                <div id="connect">
+                    <h2>Connectez vous !</h2>
+                    <form action="?page=User/Login" method="post">
+                        <label for="email">Votre Email
+                            <input type="email" name="email" id="email">
+                        </label>
+                        <label for="password">Mot de passe
+                            <input type="password" name="password" id="password">
+                        </label>
+                        <input type="submit" value="Connection">
+                    </form>
+                    <a href="" class="show_inscription">Inscrivez-vous</a>
+                </div>
+                <div id="inscription" class="display-none">
+                <h2>Inscrivez vous !</h2>
+                    <form action="?page=User/Signup" method="post">
+                        <label for="first_name">Votre Nom
+                            <input type="text" name="first_name" id="first_name">
+                        </label>
+                        <label for="last_name">Votre Prénom
+                            <input type="text" name="last_name" id="last_name">
+                        </label>
+                        <label for="pseudo">Votre pseudo
+                            <input type="text" name="pseudo" id="pseudo">
+                        </label>
+                        <label for="email">Votre Email
+                            <input type="text" name="email" id="email">
+                        </label>
+                        <label for="password">Vérification du mot de passe
+                            <input type="password" name="password" id="password">
+                        </label>
+                        <label for="password_verif">Mot de passe
+                            <input type="password_verif" name="password_verif" id="password_verif">
+                        </label>
+                        <input type="submit" value="Envoyer l'inscription">
+                    </form>
+                    <a href="" class="show_inscription">Retourner au login</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+<div id="content"><?php include $contentView['viewLink']; ?></div>
+
+    <footer>
+        <div class="container">
+            <section class="logo-site">
+                <h1><a href="" title="Lien vers l'accueil"><i class="fas fa-headset"></i>syde.com</a></h1>
+            </section>
+            <nav>
+                <ul>
+                    <li><a href="?page=Home" title="Lien vers l'accueil">Home</a></li>
+                    <li><a href="?page=Jeux" title="Liste des jeux Enregistré">Jeux</a></li>
+                    <li><a href="?page=New_group" title="Créez votre Groupe !">Former un Groupe</a></li>
+                    <li><a href="" title="Comment utiliser le site">Infos</a></li>
+                    <li><a href="" title="Nous contacter & lien externe">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+</body>
+</html>

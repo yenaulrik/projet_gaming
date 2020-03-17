@@ -1,0 +1,53 @@
+<main class="container box-shd">
+        <section class="carousel">
+            <div class="dynamic-list"></div>
+            <h2>TOP 10 des jeux les plus Marquants</h2>
+            <div>
+                <div class="slide-left"><i class="fas fa-sort-down"></i></div>
+                <div class="slide-right"><i class="fas fa-sort-down"></i></div>
+                <?php foreach($list as $key=>$game): ?>
+                    <?php if($key <= 9): ?>
+                        <article class="game-article" data-game="<?=$game['jeu_id']?>">
+                            <h3><?= $game['jeu_rate']?><?= $game['jeu_title']?></h3>
+                            <img src="<?=IMG_PATH?>\games\<?= $game['jeu_img']?>" alt="">
+                            <div class="grp"><strong>55</strong> <i class="fas fa-users"></i></div>
+                        </article>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            </div>
+        </section>
+        <section class="carousel">
+            <h2>TOP 10 des groupes les plus actifs</h2>
+            <div>
+                <div class="slide-left"><i class="fas fa-sort-down"></i></div>
+                <div class="slide-right"><i class="fas fa-sort-down"></i></div>
+                <?php foreach($group_rate as $key=>$group): ?>
+                    <?php if($key <= 9): ?>
+                        <article>
+                            <h3><?= $group['group_rate']?><?= $group['group_title']?></h3>
+                            <a href="?page=Group&group_id=<?= $group['group_id']?>"><img src="<?=IMG_PATH?>group/<?= $group['group_img']?>" alt=""></a>
+                            <div class="grp"><strong>55</strong> <i class="fas fa-users"></i></div>
+                        </article>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            </div>
+        </section>
+        <section class="carousel">
+            <h2>Groupes créés Dernièrement</h2>
+            <div>
+                <div class="slide-left"><i class="fas fa-sort-down"></i></div>
+                <div class="slide-right"><i class="fas fa-sort-down"></i></div>
+                <?php foreach($group_date as $key=>$group): ?>
+                    <?php if($key <= 9): ?>
+                        <article class="game-article">
+                            <h3><?= $group['group_created_at']?><?= $group['group_title']?></h3>
+                            <a href="?page=Group&group_id=<?= $group['group_id']?>"><img src="<?=IMG_PATH?>group/<?= $group['group_img']?>" alt=""></a>
+                            <div class="grp"><strong>55</strong> <i class="fas fa-users"></i></div>
+                        </article>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            </div>
+        </section>
+    </main>
+
+

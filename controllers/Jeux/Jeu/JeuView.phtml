@@ -1,0 +1,12 @@
+<h2>Trouvez votre groupe !</h2>
+            <div>
+                <?php foreach($list as $key=>$game): ?>
+                    <?php if($key <= 7): ?>
+                        <article class="game-article" data-game="<?=$game['jeu_id']?>">
+                            <h3><?= $game['jeu_title']?></h3>
+                            <img src="images/games/<?= $game['jeu_img']?>" alt="">
+                            <div class="grp"><strong>55</strong> <i class="fas fa-users"></i></div>
+                        </article>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            </div>

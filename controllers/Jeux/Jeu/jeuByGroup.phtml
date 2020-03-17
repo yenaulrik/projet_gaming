@@ -1,0 +1,47 @@
+<!--
+    Changer le group rate en group_nbr_member
+    quand la table sera fix
+    finir mise en page du tableau
+    faire ordonner le tableau par nbr de membre
+    ajouter date de creation
+    ajouter date des derniers posts
+-->
+<div class="animate-top">
+    <?php if($groups) : ?>
+        <table>
+            <tr><th colspan="3" class="title"><h2><?= $jeu_img['jeu_title']?></h2></th></tr>
+            <tr>
+                <th>Groupe</th>
+                <th>Description</th>
+                <th>Infos</th>
+            </tr>
+            <?php foreach($groups as $group):?>
+            <a href="">
+                <tr data-group_id="<?= $group['group_id']?>">
+                    <td>
+                        <a href="?page=Group&group_id=<?= $group['group_id']?>"><img src="images/games/<?= $group['group_img']?>" alt=""></a>
+                    </td>
+                    <td>
+                        <h2><?= $group['group_title']?></h2><?= $group['group_description']?>
+                    </td>
+                    <td>
+                        <table>
+                            <tr>
+                                <td>Membres :</td><td><?= $group['group_rate']?></td>
+                            </tr>
+                            <tr>
+                                <td>Dernière activité le :</td><td><?= $group['group_created_at']?></td>
+                            </tr>
+                            <tr>
+                                <td>Créé le :</td><td><?= $group['group_created_at']?></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </a>
+            <?php endforeach;?>
+        </table>
+        <?php else : ?>
+        <p>Aucun groupe n'est inscrit pour ce jeu!</p>
+    <?php endif ; ?>
+</div>

@@ -1,0 +1,20 @@
+<div class="row box">
+        <div class="full-width content-40">
+            <img src="images/games/<?= $group['group_img']?>" alt="">
+        </div>
+        <div class="col btw box content-60">
+            <h2><?= $group['group_title']?></h2>
+            <p><?= $group['group_description']?></p>
+        </div>
+    </div>
+    <div class="grp-menu">
+        <nav>
+            <ul>
+                <?if($session->sessionExists()):?>
+                <li><a href="?page=Articles/Add&group_id=<?= $group['group_id']?>" title="Créer un Article">Créer Article</a></li>
+                <?endif;?>
+                <li><a href="?page=New_group" title="Membres">Membres</a></li>
+                <li><a href="?page=Group&group_id=<?= $group['group_id']?>" title="Rejoindre le groupe">Rejoindre le groupe!</a></li>
+            </ul>
+        </nav>
+    </div>
