@@ -20,9 +20,9 @@
                     <img src="images/games/<?= $article['article_img']?>" alt="">
                 </div>
                 <div class="col box content-60">
-                    <h3><?= $article['article_title']?></h3>
-                    <div class="caption"> écrit par : <?= $article['user_pseudo']?> le <?= $article['article_creation_date']?></div>
-                    <p><?= $article['article_content']?></p>
+                    <h3><?= htmlspecialchars($article['article_title'])?></h3>
+                    <div class="caption"> écrit par : <?= htmlspecialchars($article['user_pseudo'])?> le <?= $article['article_creation_date']?></div>
+                    <p><?= htmlspecialchars($article['article_content'])?></p>
                 </div>
             </article>
         <?php endforeach;?>

@@ -1,10 +1,14 @@
 <!-- 
     vous devez etre connecter pour creer un groupe
-
+    Affichage groupe créé réussit
+    bloquer le raffraichissement de la page et l'envoie des infos si non correct
 
 -->
 <main class="container box-shd">
     <section class="create_group">
+        <?php if(isset($error)):?>
+            <h3><?= $error ?></h3>
+        <?php endif;?>
         <h2>Créez votre groupe dés maintenant !</h2>
         <div class="container">
 
@@ -14,17 +18,18 @@
             </div>
         <hr>
             <div id="create_form">
-                <form action="">
+                <form action="?page=New_group" enctype="multipart/form-data" method="POST">
                     
                     <label for="group_title"><h2>Nom du Groupe</h2></label>
-                    <input type="text" id="group_title" name="group_title">
+                    <input type="text" id="group_title" name="group_title" required>
                     
                     <label for="group_description"><h2>Décrivez votre groupe !</h2></label>
-                    <textarea name="group_description" id="group_description" rows="5" cols="60"></textarea>
+                    <textarea name="group_description" id="group_description" rows="5" cols="60" required></textarea>
                     
                     
-                    <label for="group_img"><h2>Téléchargez votre bannière !</h2></label>
+                    <label for="group_img"><h2>Téléchargez votre bannière !(400x200)</h2></label>
                     <input type="file" accept=".jpg, .jpeg, .png" name="group_img" id="group_img">
+                    <input type="hidden" name="MAX_FILE_SIZE" value="100000">
                     <h2>Inscrivez des jeux à votre groupe !</h2>
                     <div class="jeuList">
                         <?php foreach($list as $game):?>

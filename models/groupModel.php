@@ -57,6 +57,15 @@ class Group{
             ]
         );
     }
+    public function findByName(string $name)
+    {
+        return $this->db->queryOne(
+            'SELECT * FROM `groups` WHERE `group_title` = :name',
+            [
+                ':name'   => $name
+            ]
+        );
+    }
 
     public function findGameOfGroup(int $id){
         return $this->db->query(
@@ -84,4 +93,34 @@ class Group{
         );
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param [type] $first_name
+     * @param [type] $last_name
+     * @param [type] $pseudo
+     * @param [type] $email
+     * @param [type] $password
+     * @return void
+     */
+    public function add( $group_creator_id, $group_title, $group_description, $group_img = '' ) 
+    {
+        if($group_img == ''){
+            $group_img = "no-images.png";
+        }
+
+        $this->db->executeSql(
+            'INSERT INTO groups
+            
+            (group_creator_id,group_title,group_description,group_img,group_created_at)
+            VALUES
+            (:group_creator_id,:group_title,:group_description,:group_img,NOW() )',
+            [
+                ':group_creator_id' => $group_creator_id,
+                ':group_title' => $group_title,
+                ':group_description' => $group_description,
+                ':group_img' => $group_img
+            ]
+        );
+    }
 }

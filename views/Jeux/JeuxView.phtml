@@ -24,7 +24,7 @@
                     <p id="<?php echo preg_replace('/\s+/', '_', $type) ?>">
                         <?php foreach($tagsList as $tag):?>
                             <?php if($tag['type'] == $type):?>
-                                <span class="tag-choice" data-parent="<?php echo preg_replace('/\s+/', '_', $type) ?>" data-tagId="<?=$tag['tag_id']?>"><?=$tag['name']?></span>
+                                <span class="tag-choice" data-parent="<?php echo preg_replace('/\s+/', '_', $type) ?>" data-tagId="<?=$tag['tag_id']?>"><?=htmlspecialchars($tag['name'])?></span>
                             <?php endif;?>
                         <?php endforeach;?>
                     </p>
@@ -39,7 +39,7 @@
                 <?php foreach($list as $key=>$game): ?>
                     <?php if($key <= 15): ?>
                         <article class="game-article" data-game="<?=$game['jeu_id']?>">
-                            <h3><?= $game['jeu_title']?></h3>
+                            <h3><?= htmlspecialchars($game['jeu_title'])?></h3>
                             <img src="<?=IMG_PATH?>\games\<?= $game['jeu_img']?>" alt="">
                             <div class="grp"><strong>55</strong> <i class="fas fa-users"></i></div>
                         </article>

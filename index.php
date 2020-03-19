@@ -2,6 +2,7 @@
 define('ROOT_DIR', dirname(__FILE__));
 define('VIEWS_PATH', 'views/' );
 define('CONTROLLERS_PATH', 'controllers/' );
+define('CLASS_PATH', 'class/' );
 define('IMG_PATH', 'images/');
 define('MODEL', 'models/');
 

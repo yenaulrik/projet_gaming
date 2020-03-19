@@ -3,8 +3,8 @@
             <img src="images/games/<?= $group['group_img']?>" alt="">
         </div>
         <div class="col btw box content-60">
-            <h2><?= $group['group_title']?></h2>
-            <p><?= $group['group_description']?></p>
+            <h2><?= htmlspecialchars($group['group_title'])?></h2>
+            <p><?= htmlspecialchars($group['group_description'])?></p>
         </div>
     </div>
     <div class="grp-menu">
