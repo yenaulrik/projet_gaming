@@ -1,44 +1,63 @@
 <?php
-require_once MODEL.'jeuxModel.php';
+
 require_once MODEL.'groupModel.php';
+require_once MODEL.'articlesModel.php';
 
 class EditController{
-    private $jeuxModel;
+    
+    // initialiser les models
     private $groupModel;
+    private $articles;
 
     public function __construct()
     {
-        $this->jeuxModel = new Jeux();
         $this->groupModel = new Group();
+        $this->articlesModel = new Articles();
     }
-    
+
     public function run(){
-        $list = $this->jeuxModel->findByRate();
-        if(!isset($_GET['group_id'])){
+    // Vérification des $_GET
+        if(!isset($_GET['group_id']) || !isset($_GET['article'])){
             header('Location: ?page=Home');
             exit();
         }
+
+    // arrivée sur la page de base
+        // recolte des infos pour la page
+        $list = $this->groupModel->findGameOfGroup($_GET['group_id']);
         $group = $this->groupModel->findOne($_GET['group_id']);
-        $group_date = $this->groupModel->findByDate();
-        return [
-            'list' => $list,
-            'group' => $group,
-            'group_date' => $group_date
-        ];
+        $article = $this->articlesModel->findOneArticle($_GET['article']);
+
+    //envoie des infos dans le formulaire
+        if(!isset($_GET['send_edit'])){
+            
+            return [
+                'group' => $group,
+                'jeux' => $list,
+                'article' => $article
+            ];
+            
+        }
+        // Retour d'un formulaire
+        if(isset($_GET['send_edit'])){
+                $this->articlesModel->update($_GET['article'],$_POST['article_title'],$_POST['article_content'],$_POST['jeu_id'],$_POST['visible_by']);
+            $h = 'Location: ?page=Group&group_id=' . strval($_GET['group_id']);
+            header($h);
+        }
+            // Vérification du formulaire
+            // envoie dans la BDD
+            // redirection sur l'article dans la page du groupe
+
+
 
     }
 
-    // faire le lien entre les images de jeux / groupe 
-    // au click partir sur la page concerné
 
-    // faire une fonction qui calcul les groupes, articles, commentaires
-    // pour obtenir le jeu le plus marquant
-    // 1 point pour 1 commentaire
-    // 10 point par article
-    // 50 point par groupe 
+
+
 }
 
 
-$edit = new EditController();
+$add = new EditController();
 
-extract($edit->run());
+extract($add->run());

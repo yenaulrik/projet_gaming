@@ -1,7 +1,8 @@
 <?php
+
 require_once MODEL.'jeuxModel.php';
 require_once MODEL.'groupModel.php';
-require_once CLASS_PATH.'GestionnaireFichiers.class.php';
+require_once 'class/GestionnaireFichiers.class.php';
 
 
 class CreateGroup{
@@ -52,6 +53,9 @@ class CreateGroup{
                             $group_create['group_id'] . 
                             '">' .
                             htmlspecialchars($group_create['group_title']) . '</a>  a bien été créé !';
+                
+                //on ajoute les jeux au groupe
+                $this->groupModel->addGameForGroup($group_create['group_id'], $_POST['games_id']);
                 
                 return [
                     'error' => $error,

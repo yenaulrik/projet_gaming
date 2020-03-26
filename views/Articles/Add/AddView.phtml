@@ -7,7 +7,7 @@
         <div id="create_form">
             <form action="?page=Articles/Add&group_id=<?= $group['group_id']?>" method="POST">
                 <label for="article_title"><h2>Titre de l'article</h2></label>
-                    <input type="text" name="article_title" id="article_title">
+                    <input type="text" name="article_title" id="article_title" required>
                 <label for="jeu_name">Associer un jeu</label>
                     <select name="jeu_name" id="jeu_name">
                         <?php foreach($jeux as $jeu):?>
@@ -21,7 +21,7 @@
                         <option value="2" selected>Tout le monde</option>
                     </select>
                 <label for="article_content"><h2>Écrivez votre Article !</h2></label>
-                    <textarea name="article_content" id="article_content" rows="5" cols="60"></textarea>
+                    <textarea name="article_content" id="article_content" rows="5" cols="60" required></textarea>
                     <input type="submit" value="Envoyez votre article !">
             </form>
             <a href="?page=Group&group_id=<?= $group['group_id']?>">ANNULER</a>

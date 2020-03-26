@@ -1,6 +1,6 @@
 <div class="row box">
         <div class="full-width content-40">
-            <img src="images/games/<?= $group['group_img']?>" alt="">
+            <img src="images/group/<?= $group['group_img']?>" alt="">
         </div>
         <div class="col btw box content-60">
             <h2><?= htmlspecialchars($group['group_title'])?></h2>
@@ -10,11 +10,12 @@
     <div class="grp-menu">
         <nav>
             <ul>
-                <?php if($session->sessionExists()): ?>
-                <li><a href="?page=Articles/Add&group_id=<?= $group['group_id']?>" title="Créer un Article">Créer Article</a></li>
+                <?php if($_SESSION['user']['group_id'] == $group['group_id']):?>
+                    <li><a href="?page=Articles/Add&group_id=<?= $group['group_id']?>" title="Créer un Article">Créer Article</a></li>
                 <?php endif;?>
-                <li><a href="?page=New_group" title="Membres">Membres</a></li>
-                <li><a href="?page=Group&group_id=<?= $group['group_id']?>" title="Rejoindre le groupe">Rejoindre le groupe!</a></li>
+                <?php if($_SESSION['user']['group_id'] != $group['group_id']):?>
+                    <li><a href="?page=Group&group_id=<?= $group['group_id']?>&join=1" title="Rejoindre le groupe">Rejoindre le groupe!</a></li>
+                <?php endif;?>
             </ul>
         </nav>
     </div>

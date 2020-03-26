@@ -77,6 +77,21 @@ class Group{
         );
     }
 
+    public function addGameForGroup(int $group, array $jeux){
+        foreach($jeux as $jeuId){
+            $this->db->executeSql(
+                'INSERT INTO game_by_group
+                (group_id, game_id)
+                VALUES
+                (:group_id,:game_id)',
+                [
+                    ':group_id' => $group,
+                    ':game_id' => $jeuId
+                ]
+            );
+        }
+    }
+
     /**
      * return groups liés à un jeu par l'ID du jeu
      *

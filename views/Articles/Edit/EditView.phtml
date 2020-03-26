@@ -1,0 +1,50 @@
+<main class="container box-shd">
+
+    <?php include'views/Group/MenuGroup.phtml' ;?>
+
+    <section>
+        <?php if(isset($error)):?>
+            <h3><?= $error ?></h3>
+        <?php endif;?>
+        <h2>Créer un Article</h2>
+        <div id="create_form">
+            <form action="?page=Articles/Edit&article=<?= $article['article_id']?>&group_id=<?= $group['group_id']?>&send_edit=1" method="POST">
+                <label for="article_title"><h2>Titre de l'article</h2></label>
+                    <input type="text" name="article_title" id="article_title" value="<?= $article['article_title']?>" required>
+                <label for="jeu_name">Associer un jeu</label>
+                    <select name="jeu_id" id="jeu_name">
+                        <?php foreach($jeux as $jeu):?>
+                            <?php if($jeu['jeu_id'] == $article['jeux_id']):?>
+                                <option value="<?= $jeu['jeu_id']?>" selected><?= $jeu['jeu_title']?></option>
+                            <?php else :?>
+                                <option value="<?= $jeu['jeu_id']?>"><?= $jeu['jeu_title']?></option>
+                            <?php endif;?>
+                        <?php endforeach;?>
+                    </select>
+                <label for="visible_by">visibilité</label>
+                    <select name="visible_by" id="visible_by">
+                        <?php if($article['visible_by'] == '0'):?>
+                            <option value="0" selected>Personne à par moi</option>
+                        <?php else :?>
+                            <option value="0">Personne à par moi</option>
+                        <?php endif;?>
+                        <?php if($article['visible_by'] == '1'):?>
+                            <option value="1" selected>Membres du Groupe</option>
+                        <?php else :?>
+                            <option value="1">Membres du Groupe</option>
+                        <?php endif;?>
+                        <?php if($article['visible_by'] == '2'):?>
+                            <option value="2" selected>Tout le monde</option>
+                        <?php else :?>
+                            <option value="2">Tout le monde</option>
+                        <?php endif;?>
+                    </select>
+                <label for="article_content"><h2>Écrivez votre Article !</h2></label>
+                    <textarea name="article_content" id="article_content" rows="5" cols="60" required><?= $article['article_content']?></textarea>
+                    <input type="submit" value="Envoyez votre article !">
+            </form>
+            <a href="?page=Group&group_id=<?= $group['group_id']?>">ANNULER</a>
+            <hr>
+        </div>
+    </section>
+</main>

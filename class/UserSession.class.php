@@ -13,14 +13,15 @@ class UserSession {
     
     /**
      * Crée la session utilisateur
-     * Entrée : tableau (qui contient les clés id, first_name, last_name, is_admin)
+     * Entrée : tableau (qui contient les clés id, pseudo, is_admin)
      * Pas de sortie
      */
     public function create(array $userInfo) {
         if (
             array_key_exists('id', $userInfo) &&
             array_key_exists('pseudo', $userInfo) &&
-            array_key_exists('is_admin', $userInfo)
+            array_key_exists('is_admin', $userInfo)&&
+            array_key_exists('group_id', $userInfo)
         )
         {
             $_SESSION['user'] = $userInfo;
@@ -38,6 +39,9 @@ class UserSession {
     }
     public function isAdmin() {
         return ($_SESSION['user']['id'] == '1');
+    }
+    public function groupId() {
+        return $_SESSION['user']['group_id'];
     }
     
     /**

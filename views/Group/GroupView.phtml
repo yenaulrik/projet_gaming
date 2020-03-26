@@ -1,26 +1,24 @@
 <main class="container box-shd">
     <?php include'views/Group/MenuGroup.phtml' ;?>
     <section>
+        <?php if(isset($error)):?>
+            <h3><?= $error ?></h3>
+        <?php endif;?>
+
         <h2>Derniers articles</h2>
-        <article class="row box">
-            <div class="full-width box content-40">
-                <img src="images/games/borderlands.jpg" alt="">
-            </div>
-            <div class="col box content-60">
-                <h3>titre article</h3>
-                <div class="caption"> écrit par : X le 12/2/2011</div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium nulla repudiandae incidunt ipsam vel, eveniet, repellat reiciendis minus numquam officia reprehenderit nostrum odit rerum explicabo unde quae corporis tempore dignissimos.</p>
-            </div>
-        </article>
-
-
+        <?php var_dump($_SESSION['user']);?>
         <?php foreach($articles as $article):?>
             <article class="row box">
                 <div class="full-width box content-40">
                     <img src="images/games/<?= $article['article_img']?>" alt="">
                 </div>
                 <div class="col box content-60">
-                    <h3><?= htmlspecialchars($article['article_title'])?></h3>
+                    <h3><?= htmlspecialchars($article['article_title'])?> 
+                        <?php if($_SESSION['user']['group_id'] == $group['group_id']):?>
+                            <a href="?page=Articles/Edit&article=<?= $article['article_id']?>&group_id=<?= $group['group_id']?>"><i class="fas fa-edit"></i></a> 
+                            <a href="?page=Articles/Delete&article=<?= $article['article_id']?>&group_id=<?= $group['group_id']?>"><i class="fas fa-trash-alt"></i></a>
+                        <?php endif;?>
+                    </h3>
                     <div class="caption"> écrit par : <?= htmlspecialchars($article['user_pseudo'])?> le <?= $article['article_creation_date']?></div>
                     <p><?= htmlspecialchars($article['article_content'])?></p>
                 </div>

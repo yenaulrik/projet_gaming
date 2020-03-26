@@ -47,6 +47,17 @@ class UserModel
             ]
         );
     }
+
+    public function updateGroup(int $user_id, int $group_id){
+        $this->db->executeSql('UPDATE `user` SET `group_id` = :group_id WHERE `user`.`user_id` = :user_id'
+        ,
+        [
+            ':group_id' => $group_id,
+            ':user_id' => $user_id
+        ]
+        );
+        $_SESSION['user']['group_id'] = $group_id;
+    }
     
     public function checkLogin(string $email, string $password) : array
     {
@@ -81,7 +92,8 @@ class UserModel
         return [
             'id' => $user['user_id'],
             'pseudo' => $user['user_pseudo'],
-            'is_admin' => $user['is_admin']
+            'is_admin' => $user['is_admin'],
+            'group_id' => $user['group_id']
         ];
     }
     

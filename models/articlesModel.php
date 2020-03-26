@@ -46,6 +46,23 @@ class Articles{
     }
 
     /**
+     * return one article by id
+     *
+     * @param integer $id_article
+     * @return array
+     */
+    public function findOneArticle(int $id)
+    {
+        return $this->db->queryOne(
+            'SELECT * FROM `articles` WHERE `article_id` = :id',
+            [
+                ':id'   => $id
+            ]
+        );
+        
+    }
+
+    /**
      * return one article
      *
      * @param integer $id_article
@@ -91,6 +108,33 @@ class Articles{
                 ':group_id' => $group_id,
                 ':user' => $user_id
             ]
+        );
+    }
+
+    public function update(int $article_id, string $article_title, string $article_content, int $jeux_id, int $visible_by){
+        $this->db->executeSql('UPDATE `articles` 
+        SET `article_title` = :article_title,
+            `article_content` = :article_content,
+            `jeux_id` = :jeux_id,
+            `visible_by` = :visible_by
+        WHERE `articles`.`article_id` = :article_id'
+        ,
+        [
+            ':article_id' => $article_id,
+            ':article_title' => $article_title,
+            ':article_content' => $article_content,
+            ':jeux_id' => $jeux_id,
+            ':visible_by' => $visible_by
+        ]
+        );
+    }
+    public function delete(int $article_id){
+        $this->db->executeSql('DELETE FROM `articles` 
+        WHERE `articles`.`article_id` = :article_id'
+        ,
+        [
+            ':article_id' => $article_id
+        ]
         );
     }
 
