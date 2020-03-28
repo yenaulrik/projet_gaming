@@ -21,3 +21,22 @@ if(isset($_GET['page'])){
 
 include $contentView['controllerLink'];
 include 'views/layout.phtml';
+
+/* TODO */
+/*
+* Modification d'image des groupes
+* outils reduction d'image ?
+* ajout & supression des jeux pour groupe
+* ajout & suppression des tag pour jeux
+* commenter les fonctions
+* revoir le JS
+* revoir la sécurité des informations entréees par l'utilisateur
+* vérifier la mise en forme des informations (type mail, longueur password ...)
+* créer function JS pour la mise en forme
+
+
+
+
+
+
+*/

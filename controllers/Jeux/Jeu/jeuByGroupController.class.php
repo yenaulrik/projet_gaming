@@ -25,14 +25,8 @@ class JeuByGroup{
             'jeu_img' => $jeu_img
         ];
         
-    }
+    }// RUN
 
-
-    // faire une fonction qui calcul les groupes, articles, commentaires
-    // pour obtenir le jeu le plus marquant
-    // 1 point pour 1 commentaire
-    // 10 point par article
-    // 50 point par groupe 
 }
 
 

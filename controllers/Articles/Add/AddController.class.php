@@ -16,8 +16,7 @@ class AddController{
     
     public function run(){
         
-        // ajouter condition && $_SESSION['user_group'] == $_GET['group_id']
-        // si la page est bien redirigé vers un groupe précis
+        // on vérifie si la page chargé contient bien un groupe en cible
         if(!isset($_GET['group_id']) ){
             header('Location: ?page=Home');
             exit();
@@ -25,26 +24,27 @@ class AddController{
 
 // article_title    jeu_name    visible_by   article_content
 
-        echo isset($_GET['article_title']);
         // si on a un retour du formulaire complet 
         if(isset($_POST['article_title']) &&
         isset($_POST['jeu_name'])&&
         isset($_POST['visible_by'])&&
         isset($_POST['article_content'])){
-
+            // ajout des infos du form dans la bdd
             $this->articles->add(   $_POST['article_title'],
                                     $_POST['jeu_name'],
                                     $_POST['article_content'],
                                     $_POST['visible_by'],
                                     $_GET['group_id'],
                                     $_SESSION['user']['id']);
-            // remplacer le 1 par $_SESSION['user']['id']
+            
+            // redirection vers l'article
             $h = 'Location: ?page=Group&group_id=' . strval($_GET['group_id']);
             header($h);
             exit();
         }
 
 
+        //si pas de retour du formulaire, afficher le formulaire en envoyant les infos pour les option & checkbox
         $list = $this->groupModel->findGameOfGroup($_GET['group_id']);
         $group = $this->groupModel->findOne($_GET['group_id']);
 
@@ -53,16 +53,8 @@ class AddController{
             'jeux' => $list
         ];
 
-    }
+    }// RUN
 
-    // faire le lien entre les images de jeux / groupe 
-    // au click partir sur la page concerné
-
-    // faire une fonction qui calcul les groupes, articles, commentaires
-    // pour obtenir le jeu le plus marquant
-    // 1 point pour 1 commentaire
-    // 10 point par article
-    // 50 point par groupe 
 }
 
 

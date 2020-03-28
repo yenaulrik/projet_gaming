@@ -34,9 +34,10 @@
                 </ul>
             </nav>
             <section class="btn-user">
-                
-                
                 <?php if($session->sessionExists() ): ?>
+                    <?php if($_SESSION['user']['group_id'] != NULL):?>
+                    <a href="?page=Group&group_id=<?= $_SESSION['user']['group_id']?>" title="Rejoindre ma page de groupe"><i class="far fa-flag"></i></a>
+                    <?php endif;?>
                     <div class="menu-user">
                         <i class="fas fa-user"></i>
                         <div id="menu-user" class="display-none">
@@ -73,22 +74,22 @@
                 <h2>Inscrivez vous !</h2>
                     <form action="?page=User/Signup" method="post">
                         <label for="first_name">Votre Nom
-                            <input type="text" name="first_name" id="first_name">
+                            <input type="text" name="first_name" id="first_name" minlength="5" required>
                         </label>
                         <label for="last_name">Votre Prénom
-                            <input type="text" name="last_name" id="last_name">
+                            <input type="text" name="last_name" id="last_name" minlength="5" required>
                         </label>
                         <label for="pseudo">Votre pseudo
-                            <input type="text" name="pseudo" id="pseudo">
+                            <input type="text" name="pseudo" id="pseudo" minlength="5" required>
                         </label>
                         <label for="email">Votre Email
-                            <input type="text" name="email" id="email">
+                            <input type="email" name="email" id="email"required>
                         </label>
-                        <label for="password">Vérification du mot de passe
-                            <input type="password" name="password" id="password">
+                        <label for="password">Mot de passe
+                            <input type="password" name="password" id="password" minlength="8" required>
                         </label>
-                        <label for="password_verif">Mot de passe
-                            <input type="password_verif" name="password_verif" id="password_verif">
+                        <label for="password_verif">Vérification du mot de passe
+                            <input type="password_verif" name="password_verif" id="password_verif"required>
                         </label>
                         <input type="submit" value="Envoyer l'inscription">
                     </form>

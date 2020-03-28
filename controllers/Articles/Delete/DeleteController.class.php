@@ -22,21 +22,18 @@ class DeleteController{
             exit();
         }
 
-    // arrivée sur la page de base
-        // recolte des infos pour la page
-        $list = $this->groupModel->findGameOfGroup($_GET['group_id']);
-        $group = $this->groupModel->findOne($_GET['group_id']);
-        $article = $this->articlesModel->findOneArticle($_GET['article']);
-
-    // on vérifie que l'utilisateur appartient bien au groupe
-
-    // on supprime l'article
+    // on vérifie que l'utilisateur appartient bien au groupe et est bien connecté
+        if(!isset($_SESSION['user']) || $_SESSION['user']['group_id'] != $_GET['group_id']){
+            header('Location: ?page=Home');
+            exit();
+        }
+    // on supprime l'article si tout va bien
         $this->articlesModel->delete($_GET['article']);
     // on retourne à la page du groupe
         $h = 'Location: ?page=Group&group_id=' . strval($_GET['group_id']);
         header($h);
 
-    }
+    }// RUN
 
 }
 

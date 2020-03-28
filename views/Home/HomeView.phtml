@@ -8,7 +8,7 @@
                 <?php foreach($list as $key=>$game): ?>
                     <?php if($key <= 9): ?>
                         <article class="game-article" data-game="<?=$game['jeu_id']?>">
-                            <h3><?= $game['jeu_rate']?><?= htmlspecialchars($game['jeu_title'])?></h3>
+                            <h3><?= htmlspecialchars($game['jeu_title'])?></h3>
                             <img src="<?=IMG_PATH?>\games\<?= $game['jeu_img']?>" alt="">
                             <div class="grp"><strong>55</strong> <i class="fas fa-users"></i></div>
                         </article>
@@ -24,7 +24,7 @@
                 <?php foreach($group_rate as $key=>$group): ?>
                     <?php if($key <= 9): ?>
                         <article>
-                            <h3><?= $group['group_rate']?><?= htmlspecialchars($group['group_title'])?></h3>
+                            <h3><?= htmlspecialchars($group['group_title'])?></h3>
                             <a href="?page=Group&group_id=<?= $group['group_id']?>"><img src="<?=IMG_PATH?>group/<?= $group['group_img']?>" alt=""></a>
                             <div class="grp"><strong>55</strong> <i class="fas fa-users"></i></div>
                         </article>
@@ -40,7 +40,7 @@
                 <?php foreach($group_date as $key=>$group): ?>
                     <?php if($key <= 9): ?>
                         <article class="game-article">
-                            <h3><?= $group['group_created_at']?><?= htmlspecialchars($group['group_title'])?></h3>
+                            <h3><?= htmlspecialchars($group['group_title'])?></h3>
                             <a href="?page=Group&group_id=<?= $group['group_id']?>"><img src="<?=IMG_PATH?>group/<?= $group['group_img']?>" alt=""></a>
                             <div class="grp"><strong>55</strong> <i class="fas fa-users"></i></div>
                         </article>

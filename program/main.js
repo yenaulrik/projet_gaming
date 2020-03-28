@@ -9,7 +9,7 @@ $(function(){
     
     // si on click sur un lien on prend l'adress du lien et on vérifie 
 
-    //finir l'affichage du déroulant des tags lors du click dans le form=>tags
+    // OK // finir l'affichage du déroulant des tags lors du click dans le form=>tags
 
     /* TODO
         faire afficher la modal d'inscription au click sur le lien

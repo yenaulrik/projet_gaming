@@ -39,25 +39,17 @@ class EditController{
             
         }
         // Retour d'un formulaire
+        // Vérification du formulaire
         if(isset($_GET['send_edit'])){
+                // envoie dans la BDD
                 $this->articlesModel->update($_GET['article'],$_POST['article_title'],$_POST['article_content'],$_POST['jeu_id'],$_POST['visible_by']);
+
+            // redirection sur l'article dans la page du groupe
             $h = 'Location: ?page=Group&group_id=' . strval($_GET['group_id']);
             header($h);
         }
-            // Vérification du formulaire
-            // envoie dans la BDD
-            // redirection sur l'article dans la page du groupe
-
-
-
-    }
-
-
-
-
+    }// RUN
 }
 
-
 $add = new EditController();
-
 extract($add->run());

@@ -23,15 +23,6 @@ class HomeController{
         ];
 
     }
-
-    // faire le lien entre les images de jeux / groupe 
-    // au click partir sur la page concerné
-
-    // faire une fonction qui calcul les groupes, articles, commentaires
-    // pour obtenir le jeu le plus marquant
-    // 1 point pour 1 commentaire
-    // 10 point par article
-    // 50 point par groupe 
 }
 
 

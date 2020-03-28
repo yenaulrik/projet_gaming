@@ -534,3 +534,10 @@ main > section:nth-child(odd){
     padding : 5px;
     height : 2em;
 }
+
+/* BLOCK ERROR */
+.error h3{
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}

@@ -36,7 +36,7 @@ class HomeController{
         if(isset($_GET['group_id']) && isset($_GET['join'])){
             
 
-            if(!isset($_SESSION['user'])){
+            if(!isset($_SESSION['user'])){// si l'utilisateur n'est pas connecté
                 return [
                     'list' => $list,
                     'group' => $group,
@@ -47,7 +47,7 @@ class HomeController{
             }else{
                 
                 $user = $this->userModel->findOne($_SESSION['user']['id']);
-                if(isset($_GET['confirm'])){
+                if(isset($_GET['confirm'])){ // retour du deuxieme IF pour changer de groupe
                     $this->userModel->updateGroup($_SESSION['user']['id'], $_GET['group_id'] );
                     return [
                         'list' => $list,
@@ -57,7 +57,7 @@ class HomeController{
                         'error' => 'Vous êtes désormais inscrit dans ce groupe !'
                     ];
                 }
-                if($user['group_id'] != NULL){
+                if($user['group_id'] != NULL){ // si l'utilisateur veut changer de groupe
                     $Oldgroup = $this->groupModel->findOne($user['group_id']);
                     return [
                         'list' => $list,
@@ -67,7 +67,7 @@ class HomeController{
                         'error' => 'Vous êtes déjà dans le groupe : ' . $Oldgroup['group_title'] . ' Voulez-vous vraiment changer ? ' .
                                     '<a href="?page=Group&group_id='. $group["group_id"] . '&join=1&confirm=1">oui !</a>'
                     ];
-                }else{
+                }else{ // si l'utilisateur n'a aucun groupe (Fresh user = group_id == NULL)
                     $this->userModel->updateGroup($_SESSION['user']['id'], $_GET['group_id'] );
                     return [
                         'list' => $list,

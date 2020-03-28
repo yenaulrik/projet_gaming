@@ -2,11 +2,13 @@
     <?php include'views/Group/MenuGroup.phtml' ;?>
     <section>
         <?php if(isset($error)):?>
-            <h3><?= $error ?></h3>
+            <div class="error">
+                <h3><?= $error ?></h3>
+            </div>
         <?php endif;?>
 
         <h2>Derniers articles</h2>
-        <?php var_dump($_SESSION['user']);?>
+        
         <?php foreach($articles as $article):?>
             <article class="row box">
                 <div class="full-width box content-40">
@@ -14,7 +16,7 @@
                 </div>
                 <div class="col box content-60">
                     <h3><?= htmlspecialchars($article['article_title'])?> 
-                        <?php if($_SESSION['user']['group_id'] == $group['group_id']):?>
+                        <?php if(isset($_SESSION['user']) && $_SESSION['user']['group_id'] == $group['group_id']):?>
                             <a href="?page=Articles/Edit&article=<?= $article['article_id']?>&group_id=<?= $group['group_id']?>"><i class="fas fa-edit"></i></a> 
                             <a href="?page=Articles/Delete&article=<?= $article['article_id']?>&group_id=<?= $group['group_id']?>"><i class="fas fa-trash-alt"></i></a>
                         <?php endif;?>

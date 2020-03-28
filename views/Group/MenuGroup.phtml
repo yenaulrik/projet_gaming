@@ -10,10 +10,10 @@
     <div class="grp-menu">
         <nav>
             <ul>
-                <?php if($_SESSION['user']['group_id'] == $group['group_id']):?>
+                <?php if(isset($_SESSION['user']) && $_SESSION['user']['group_id'] == $group['group_id']):?>
                     <li><a href="?page=Articles/Add&group_id=<?= $group['group_id']?>" title="Créer un Article">Créer Article</a></li>
                 <?php endif;?>
-                <?php if($_SESSION['user']['group_id'] != $group['group_id']):?>
+                <?php if(!isset($_SESSION['user']) || $_SESSION['user']['group_id'] != $group['group_id']):?>
                     <li><a href="?page=Group&group_id=<?= $group['group_id']?>&join=1" title="Rejoindre le groupe">Rejoindre le groupe!</a></li>
                 <?php endif;?>
             </ul>
