@@ -33,7 +33,7 @@ include 'views/layout.phtml';
 * revoir la sécurité des informations entréees par l'utilisateur
 * vérifier la mise en forme des informations (type mail, longueur password ...)
 * créer function JS pour la mise en forme
-
+* responsive ... tablette & telephone ?
 
 
 

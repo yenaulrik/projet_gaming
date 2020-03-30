@@ -31,6 +31,9 @@ couleurs :
 #1282A2 bleu
 
 */
+.hidden{
+    display: none !important;
+}
 .center{
     text-align: center;
 }
@@ -347,13 +350,14 @@ main > section:nth-child(odd){
     .carousel > div {
         display : flex;
         flex-direction: row;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
+        overflow: hidden;
         position: relative;
         z-index: 2;
     }
         .carousel > div > article{
             display : flex ;
-            width : 25%;
+            min-width : 25%;
             height : 250px;
             box-sizing : border-box;
             display : flex;

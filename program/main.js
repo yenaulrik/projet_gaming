@@ -19,18 +19,12 @@ $(function(){
     let modal = $('#modal')
     let find = new Find()
     let tags = new Tags()
-    let slide_left_btn =$('.slide-left')
-    let slide_right_btn =$('.slide-right')
 
     //reset des variables sessionstorage & champs de recherche jeux
     if(sessionStorage.getItem("game_name")){sessionStorage.removeItem("game_name")}
     if(sessionStorage.getItem("tag_choice_list")){sessionStorage.removeItem("tag_choice_list")}
     $('#game_name').val("")
     
-    //carousel
-    slide_left_btn.on('click', function(){
-        console.log('click gauche')
-    })
 
     // affichage modal
     $('#log').on('click', function(e){
@@ -50,7 +44,7 @@ $(function(){
 
     //détection de tous les clicks à l'écran
     $(window).on('click', function(e){
-        console.log(e.target)
+        //console.log(e.target)
         //fermeture modal
         if(e.target.id == "modal"){ modal.css('display','none')}
 
