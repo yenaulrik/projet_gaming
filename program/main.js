@@ -28,8 +28,7 @@ $(function(){
 
     // affichage modal
     $('#log').on('click', function(e){
-        e.preventDefault()
-        
+        e.preventDefault()        
         modal.css('display','block')
     })
     //toggle du display onglet login
@@ -64,4 +63,25 @@ $(function(){
         //$('#game_tag').on('input', find.selectTag(this.value)); 
         // select a tag $('#game_name').on('input', nameTyping(this.value)); 
     }
+
+// Affichage du menu burger :D
+
+$( ".cross" ).hide();
+$( ".menu" ).hide();
+
+$( ".hamburger" ).click(function() {
+    $( ".menu" ).slideToggle( "slow", function() {
+        $( ".hamburger" ).hide();
+        $( ".cross" ).show();
+        });
+    });
+
+$( ".cross" ).click(function() {
+    $( ".menu" ).slideToggle( "slow", function() {
+        $( ".cross" ).hide();
+        $( ".hamburger" ).show();
+    });
+});
+
+
 })

@@ -140,6 +140,9 @@ main{
 /*                    HEADER                                */
 /************************************************************/
 /*      Box Header        */
+#menu-mobile{
+    display: none;
+}
 header, footer, .grp-menu{
     margin : 0 auto;
     background-color: #004365;
@@ -545,3 +548,139 @@ main > section:nth-child(odd){
     padding: 20px;
     text-align: center;
 }
+
+@media screen and (max-width: 640px) {
+    /* Container */
+    .container{
+        width: 100%;
+        box-shadow: none;
+    }
+
+    /* HEADER */
+    .modal-content{
+        width: 100%;
+    }
+    header{
+        padding: 20px;
+    }
+    header .btn-user{
+        justify-content: center;
+    }
+    h1{
+        font-size: 2rem;
+    }
+    #menu-screen{
+        display: none;
+    }
+    #menu-mobile{
+        display: flex;
+        flex-direction: column;
+        width: 30%;
+    }
+    .hamburger, .cross{
+        background:none;
+        padding:10px;
+        color:white;
+        border:0;
+        font-size:2em;
+        font-weight:bold;
+        cursor:pointer;
+        outline:none;
+        z-index:10;
+    }
+    
+    .menu{
+        
+        box-sizing: border-box;
+        z-index:4; 
+        font-weight:bold; 
+        font-size:0.8em; 
+        width:100%; 
+        background:#f1f1f1;  
+        position:fixed; 
+        text-align:center; 
+        font-size:12px;
+    }
+    .menu ul {
+        margin: 0; 
+        padding: 0; 
+        list-style-type: none; 
+        list-style-image: none;
+    }
+    .menu li {
+        display: block;   
+        padding:15px 0 15px 0; 
+        border-bottom:#dddddd 1px solid;
+        text-transform: uppercase; 
+    }
+    .menu li:hover{
+        display: block;    
+        background:#ffffff; 
+        padding:15px 0 15px 0; 
+        border-bottom:#dddddd 1px solid;
+    }
+    .menu ul li a {  
+        text-decoration:none; 
+        margin: 0px; 
+        color:#666;
+    }
+    .menu ul li a:hover {  
+        color: #666; 
+        text-decoration:none;
+    }
+    .menu a{
+        text-decoration:none; 
+        color:#666;
+    }
+    .menu a:hover{
+        text-decoration:none; 
+        color:#666;
+    }
+
+    /* Carousel */
+    .carousel > div > article{
+        min-width: 50%;
+    }
+
+    /* page jeux */
+    .page_jeux form{
+        flex-direction: column;
+    }
+    #form{
+        flex-direction: row;
+        width: 100%;
+        align-items: center;
+    }
+    #form > label{
+        height : 100px;
+        width: 47%;
+    }
+    #game_tag{
+        height: auto !important;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .list-tag{
+        flex-wrap: wrap;
+        text-align: center;
+    }
+    .tags{
+        width: 100%;
+    }
+    .list-tag .tags{
+        width: 50%;
+    }
+    /* Page Jeux => Groups */
+    .table-groups > td{
+        display: block;
+    }
+    .table-title{
+        display: none;
+    }
+
+    /* Footer */
+    footer{
+        display: none;
+    }
+}
+

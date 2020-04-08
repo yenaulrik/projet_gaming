@@ -24,15 +24,17 @@
             <section class="logo-site">
                 <h1><a href="?page=Home" title="Lien vers l'accueil"><i class="fas fa-headset"></i>syde.com</a></h1>
             </section>
-            <nav>
+            <nav id="menu-screen">
                 <ul>
                     <li><a href="?page=Home" title="Lien vers l'accueil">Home</a></li>
                     <li><a href="?page=Jeux" title="Liste des jeux Enregistré">Jeux</a></li>
                     <li><a href="?page=New_group" title="Créez votre Groupe !">Former un Groupe</a></li>
-                    
-                    
                 </ul>
             </nav>
+            <div id="menu-mobile">
+                <button class="hamburger"><i class="fas fa-bars"></i></button>
+                <button class="cross"><i class="fas fa-bars"></i></button>
+            </div>
             <section class="btn-user">
                 <?php if($session->sessionExists() ): ?>
                     <?php if($_SESSION['user']['group_id'] != NULL):?>
@@ -98,6 +100,13 @@
             </div>
         </div>
     </header>
+    <div class="menu"><!-- Menu déroulant burger-->
+        <ul>
+            <a href="?page=Home"><li>Home</li></a>
+            <a href="?page=Jeux"><li>Jeux</li></a>
+            <a href="?page=New_group"><li>Former un Groupe</li></a>
+        </ul> 
+    </div>
 
 <div id="content"><?php include $contentView['viewLink']; ?></div>
 
